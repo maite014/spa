@@ -1,43 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>spa</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Jogos incríveis - SPA</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        nav{
-            font-size: 2em;
+        nav {
+            font-size: 1.5em;
+            background-color: #111;
+            padding: 15px;
+            text-align: center;
         }
-        nav a{
+
+        nav a {
             text-decoration: none;
-            color: fff;
-            
+            color: #FFF;
+            padding: 0 20px;
+        }
+
+        nav a:hover {
+            color: #FF4500;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #eee;
+            margin: 0;
+        }
+
+        .pagina {
+            padding: 20px;
         }
     </style>
 </head>
 <body>
     <nav>
-<a href="#">Séries</a>
-<a href="#">Linguagens</a>
+        <a href wm-link="home.html" wm-destino=".pagina">Home</a> |
+        <a href wm-link="jogos.html" wm-destino=".pagina">Jogos</a> |
+        <a href wm-link="info.html" wm-destino=".pagina">Info</a>
     </nav>
 
-    <div class="pagina"></div>
-    
-    <script>
-function navegarViaAjax(url, selector, push = true){
-if(!url || ! selector)return
-const elemento = document.querySelector(seletor)
-fetch(url)
-.then(resp => resp.text())
-.then(html +>{
-    elemento.innerHTML = html
-    if(push){
-        history.pushState({seletor}), "Página Ajax", url)
-}
-})
-}
+    <div class="pagina">
+        
+    </div>
 
+    <script>
+        function navegarViaAjax(url, seletor, push = true) {
+            if (!url || !seletor) return;
+            const elemento = document.querySelector(seletor);
+            fetch(url)
+                .then(resp => resp.text())
+                .then(html => {
+                    elemento.innerHTML = html;
+                    if (push) {
+                        history.pushState({ seletor }, "Página Ajax", url);
+                    }
+                });
+        }
+
+        document.querySelectorAll('[wm-link]').forEach(link => {
+            const url = link.getAttribute('wm-link');
+            const seletorDestino = link.getAttribute('wm-destino');
+
+            link.onclick = e => {
+                e.preventDefault();
+                navegarViaAjax(url, seletorDestino);
+            };
+        });
+
+        window.onpopstate = e => {
+            if (e.state) {
+                navegarViaAjax(window.location.href, e.state.seletor, false);
+            }
+        };
+
+        window.onload = () => {
+            navegarViaAjax('home.html', '.pagina', false)
+        }
     </script>
 </body>
 </html>
