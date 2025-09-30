@@ -1,0 +1,9 @@
+
+.sobre-frase {
+  font-size: 24px;         /* Tamanho da fonte */
+  font-family: 'Arial', sans-serif;  /* Tipo da fonte */
+  color: #333;             /* Cor da fonte */
+  font-weight: bold;       /* Negrito (opcional) */
+  text-align: center;      /* Centraliza o texto (opcional) */
+  margin: 20px;            /* Espaçamento ao redor */
+}
