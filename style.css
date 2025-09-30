@@ -1,8 +1,17 @@
 
-.sobre-frase {
+.sobre {
   font-size: 24px;         /* Tamanho da fonte */
-  font-family: 'Arial', sans-serif;  /* Tipo da fonte */
-  color: #333;             /* Cor da fonte */
+  font-family: 'Helvetica', sans-serif;  /* Tipo da fonte */
+  color: #605ec5;             /* Cor da fonte */
+  font-weight: bold;       /* Negrito (opcional) */
+  text-align: center;      /* Centraliza o texto (opcional) */
+  margin: 20px;            /* Espaçamento ao redor */
+}
+
+.jogos {
+  font-size: 24px;         /* Tamanho da fonte */
+  font-family: 'Helvetica', sans-serif;  /* Tipo da fonte */
+  color: #9c5dee;             /* Cor da fonte */
   font-weight: bold;       /* Negrito (opcional) */
   text-align: center;      /* Centraliza o texto (opcional) */
   margin: 20px;            /* Espaçamento ao redor */
